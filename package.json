@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "postinstall": "[ -d post-clone-scripts ] && ./post-clone-scripts/install-semantic-release.sh && rm -rf ./post-clone-scripts || true",
-    "test": "jest --coverage --coverageDirectory=.coverage --coverageProvider=v8 -f --passWithNoTests --testMatch=\"**/*.{spec,test}.ts\"",
-    "test:watch": "npm test -- --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "build": "tsc",
     "clean": "rm -rf dist tsconfig.tsbuildinfo",
     "build:clean": "npm run clean && npm run build",
@@ -40,6 +40,7 @@
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0",
