@@ -1,10 +1,10 @@
 {
   "name": "project-name",
-  "version": "1.0.0",
-  "description": "project-description",
+  "version": "0.0.0-development",
+  "description": "<project-description>",
   "main": "dist/index.js",
   "scripts": {
-    "postinstall": "[ -d post-clone-scripts ] && ./post-clone-scripts/install-semantic-release.sh || true",
+    "postinstall": "[ -d post-clone-scripts ] && ./post-clone-scripts/install-semantic-release.sh && rm -rf ./post-clone-scripts || true",
     "test": "jest --coverage --coverageDirectory=.coverage --coverageProvider=v8 -f --passWithNoTests --testMatch=\"**/*.{spec,test}.ts\"",
     "test:watch": "npm test -- --watch",
     "build": "tsc",
@@ -13,14 +13,19 @@
     "lint": "eslint src/**/*.ts",
     "lint:fix": "npm run lint -- --fix",
     "start": "node dist/index.js",
-    "start:dev": "tsnd --rs ./src/index.ts"
+    "start:dev": "tsnd --rs ./src/index.ts",
+    "semantic-release": "semantic-release"
   },
   "author": "Lucas Santos <hello@lsantos.dev>",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/khaosdoctor/template-node-ts/issues"
+    "url": "https://github.com/khaosdoctor/<project-name>/issues"
   },
-  "homepage": "https://github.com/khaosdoctor/template-node-ts#readme",
+  "homepage": "https://github.com/khaosdoctor/<project-name>#readme",
+  "repository": {
+    "type": "git",
+    "url": "<project url>"
+  },
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
@@ -60,10 +65,12 @@
         "@semantic-release/commit-analyzer",
         {
           "preset": "angular",
-          "releaseRules": [{
-            "type": "docs",
-            "release": "patch"
-          }]
+          "releaseRules": [
+            {
+              "type": "docs",
+              "release": "patch"
+            }
+          ]
         }
       ],
       "@semantic-release/release-notes-generator",
