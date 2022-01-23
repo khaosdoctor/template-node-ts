@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/node,visualstudiocode,vim,macos,windows,go,linux
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,visualstudiocode,vim,macos,windows,go,linux
 
+.coverage/
+
 ### Go ###
 # If you prefer the allow list template instead of the deny list, see community template:
 # https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
