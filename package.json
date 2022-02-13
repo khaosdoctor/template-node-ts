@@ -1,7 +1,7 @@
 {
-  "name": "project-name",
+  "name": "template-node-ts",
   "version": "0.0.0-development",
-  "description": "<project-description>",
+  "description": "Template project for node.js and Typescript with workflows and semantic releasing",
   "main": "dist/index.js",
   "scripts": {
     "postinstall": "[ -d post-clone-scripts ] && ./post-clone-scripts/install-semantic-release.sh && rm -rf ./post-clone-scripts || true",
@@ -19,12 +19,12 @@
   "author": "Lucas Santos <hello@lsantos.dev>",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/khaosdoctor/<project-name>/issues"
+    "url": "https://github.com/khaosdoctor/template-node-ts/issues"
   },
-  "homepage": "https://github.com/khaosdoctor/<project-name>#readme",
+  "homepage": "https://github.com/khaosdoctor/template-node-ts#readme",
   "repository": {
     "type": "git",
-    "url": "<project url>"
+    "url": "https://github.com/khaosdoctor/template-node-ts"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
