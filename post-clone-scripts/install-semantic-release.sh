@@ -6,5 +6,7 @@ sed -i '' "s+khaosdoctor+$GIT_USERNAME+g" package.json
 read -rp "Your repository name: " REPO_NAME
 sed -i '' "s+template-node-ts+$REPO_NAME+g" package.json
 
+sed -i '' "s+khaosdoctor+$GIT_USERNAME+g" docker-compose.yml
+
 npx husky install
 npx semantic-release-cli setup
