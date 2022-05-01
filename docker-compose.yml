@@ -3,4 +3,9 @@ version: '3'
 services:
   application:
     container_name: template-node-ts
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.development
+    command: sh -c "npm install && npm run start:dev"
+    volumes:
+      - .:/usr/src/app
