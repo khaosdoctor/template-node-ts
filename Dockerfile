@@ -1,16 +1,15 @@
 FROM node:alpine AS builder
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+WORKDIR /app
 
 ## Install dependencies
-COPY ["./package.json", "./package-lock.json", "/usr/src/app/"]
+COPY ["./package.json", "./package-lock.json", "/app/"]
 
 RUN npm install
 
 ## Add source code
-COPY ["./tsconfig.json", "/usr/src/app/"]
-COPY "./src" "/usr/src/app/src/"
+COPY ["./tsconfig.json", "/app/"]
+COPY "./src" "/app/src/"
 
 ## Build
 RUN npm run build
@@ -19,18 +18,17 @@ RUN npm run build
 
 FROM node:alpine
 
-RUN mkdir -p /usr/app
-WORKDIR /usr/app
+WORKDIR /app
 
 COPY --from=builder [\
   "/usr/src/app/package.json", \
   "/usr/src/app/package-lock.json", \
-  "/usr/app/" \
+  "/app/" \
   ]
 
-COPY --from=builder "/usr/src/app/dist" "/usr/app/dist"
+COPY --from=builder "/usr/src/app/dist" "/app/dist/"
 
-RUN npm install --only=prod
+RUN npm install --omit=dev
 
 EXPOSE 3000
 
